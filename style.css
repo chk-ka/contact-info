@@ -30,7 +30,7 @@ table th {
     /* Force table to not be like tables. */
     table tr {
         display: block;
-        margin-bottom: 1em;	 /* Line spacing  */
+        margin-bottom: 1em;
     }
 
     /* Behave like a "row" */
@@ -41,14 +41,14 @@ table th {
     }
 
     /* Behave like a table header */
-    table td::before {				/* NAME ADDRESS EMAIL */
-        content: attr(data-label);	/* js? */
+    table td::before {
+        content: attr(data-label);
         float: left;
         font-weight: bold;
         text-transform: uppercase;
     }
 
-    table td:last-child {			/* last cell */
+    table td:last-child {
         border-bottom: 0;
         border: 1px solid #000000;
     }

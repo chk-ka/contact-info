@@ -1,4 +1,4 @@
-function initialize() {			// check internet
+function initialize() {
     var status = "* Offline *";
     if (navigator.onLine) {
         status = "* Online *";
@@ -13,9 +13,9 @@ function initialize() {			// check internet
         }
     }
 
-    document.getElementById("status").innerHTML = status;	// set online/ offline in the page
+    document.getElementById("status").innerHTML = status;
 
-    document.body.addEventListener(		//just change the message
+    document.body.addEventListener(
             "online",
             function () {
                 document.getElementById("status").innerHTML = "Online";
@@ -33,19 +33,17 @@ function initialize() {			// check internet
 
 function retrieveContacts() {
     const xhr = new XMLHttpRequest();
-//	const url = "contacts.json";
-	const url = "https://ouhklab.github.io/contact-info-mobile-web-app/contacts.json";
+    const url = "contacts.json";
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            var contacts = JSON.parse(xhr.response).contacts;	//contacts object in JSON
+            var contacts = JSON.parse(xhr.response).contacts;
             displayContacts(contacts);
 
             // Store contact data to localstorage
             const localStorage = window.localStorage;
             if (localStorage) {
                 localStorage.setItem("contacts", JSON.stringify(contacts));
-									  // key ,	  data    stringify:convert to string for local storage
             }
         }
     };
@@ -53,13 +51,13 @@ function retrieveContacts() {
     xhr.open("get", url);
     xhr.send();
 }
-						// array
+
 function displayContacts(contacts) {
-    contacts.forEach(addRow);	//add each elements to var
+    contacts.forEach(addRow);
 }
 
 function addRow(contact) {
-    var tcontent = document.getElementById("tcontent"); //tcontent: id for html's tbody
+    var tcontent = document.getElementById("tcontent");
     var row = tcontent.insertRow();
 
     var nameCell = row.insertCell();
